@@ -33,6 +33,7 @@ public class DataProcessor {
         String[] parsedData = LineParser.parseLine(line,LineParser.DATA_PARSER_INDICATOR);
         List<Point> points = new ArrayList<>();
         DataValidator dataValidator = new DataValidator();
+
         if (dataValidator.checkCoordinatesForUniqueness(parsedData)) {
             for (String coordinates : parsedData) {
                 String[] parsedCoordinates = LineParser.parseLine(coordinates,LineParser.COORDINATES_PARSER_INDICATOR);
@@ -44,7 +45,6 @@ public class DataProcessor {
         }
         Pyramid pyramid = PyramidCreator.createPyramid(points);
         PyramidValidator pyramidValidator = new PyramidValidator();
-
         if (pyramidValidator.isFigureRegularPyramid(pyramid)) {
             return pyramid;
         }

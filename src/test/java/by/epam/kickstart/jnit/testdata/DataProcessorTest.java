@@ -1,4 +1,4 @@
-package by.epam.kickstart.testdata;
+package by.epam.kickstart.jnit.testdata;
 
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.entities.Pyramid;
@@ -52,12 +52,12 @@ public class DataProcessorTest {
     @BeforeClass
     public static void setValidData() {
         String notValidSyntaxCoordinates = "2.2 2.2 2.2!3.3 3.3 3z.3";
-        //String notValidArgumentCoordinates = "0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.1";
+        String notValidArgumentCoordinates = "0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.1";
 
         validData = new ArrayList<>();
 
         validData.add(validCoordinates);
-       // validData.add(notValidArgumentCoordinates);
+        validData.add(notValidArgumentCoordinates);
         validData.add(notValidSyntaxCoordinates);
 
     }

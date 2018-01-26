@@ -2,8 +2,8 @@ First epam task.
 
 File format:
 
-n = число;
+n = number (type - double 0.0);
 
-n.n n.n n.n!n.n n.n n.n!n.n n.n n.n!n.n n.n n.n!n.n n.n n.n
+n n n!n n n!n n n!n n n!n n n
 
-Вершина - последние координаты.
+Pyramid apex - last point in points list.

@@ -56,22 +56,22 @@ public class RegularPyramidParameters {
 
     public List<Vector3D> getBaseVectors() {
         List<Vector3D> baseVectors = new ArrayList<>();
-        int listFrontier = getPoints().size() - APEX_INDEX;
-        int lastPointIndex = 1;
+        List<Point> basePoints = new ArrayList<>(getPoints());
+        basePoints.remove(basePoints.size() - APEX_INDEX);
 
-        for (int listIndex = 0; listIndex < listFrontier; listIndex++) {
-            if (listIndex == listIndex - lastPointIndex) {
-                Point start = getPoints().get(listIndex);
-                Point end = getPoints().get(0);
-                Vector3D vector = Vector3DCreator.createVector(start, end);
+        for (int listIndex = 0; listIndex < basePoints.size(); listIndex++) {
+            if (listIndex + 1 == basePoints.size()) {
+                Point start = basePoints.get(listIndex);
+                Point end = basePoints.get(0);
+                Vector3D vector = Vector3DCreator.createVector(start,end);
                 baseVectors.add(vector);
                 break;
-            } else {
-                Point start = getPoints().get(listIndex);
-                Point end = getPoints().get(listIndex + 1);
-                Vector3D vector = Vector3DCreator.createVector(start, end);
-                baseVectors.add(vector);
             }
+
+            Point start = basePoints.get(listIndex);
+            Point end = basePoints.get(listIndex + 1);
+            Vector3D vector = Vector3DCreator.createVector(start,end);
+            baseVectors.add(vector);
         }
 
         return baseVectors;

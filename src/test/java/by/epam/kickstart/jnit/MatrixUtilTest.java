@@ -1,4 +1,4 @@
-package by.epam.kickstart;
+package by.epam.kickstart.jnit;
 
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.util.MatrixUtil;

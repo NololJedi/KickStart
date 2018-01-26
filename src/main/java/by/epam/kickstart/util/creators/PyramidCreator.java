@@ -14,7 +14,6 @@ public class PyramidCreator {
         }
 
         Pyramid pyramid = new Pyramid(points);
-        PyramidValidator pyramidValidator = new PyramidValidator();
 
         return pyramid;
     }

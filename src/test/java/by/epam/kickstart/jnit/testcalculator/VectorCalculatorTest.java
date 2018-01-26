@@ -1,4 +1,4 @@
-package by.epam.kickstart.testcalculator;
+package by.epam.kickstart.jnit.testcalculator;
 
 import by.epam.kickstart.action.calculators.VectorCalculator;
 import by.epam.kickstart.entities.Point;

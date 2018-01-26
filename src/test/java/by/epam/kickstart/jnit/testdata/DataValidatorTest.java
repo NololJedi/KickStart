@@ -1,8 +1,7 @@
-package by.epam.kickstart.testdata;
+package by.epam.kickstart.jnit.testdata;
 
 import by.epam.kickstart.util.data.DataValidator;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

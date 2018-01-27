@@ -45,7 +45,7 @@ public class RegularPyramidParameters {
 
     public Point getApex() {
         List<Point> points = pyramid.getPoints();
-        Point apex = points.get(points.size()-1);
+        Point apex = points.get(points.size() - 1);
 
         return apex;
     }
@@ -63,14 +63,14 @@ public class RegularPyramidParameters {
             if (listIndex + 1 == basePoints.size()) {
                 Point start = basePoints.get(listIndex);
                 Point end = basePoints.get(0);
-                Vector3D vector = Vector3DCreator.createVector(start,end);
+                Vector3D vector = Vector3DCreator.createVector(start, end);
                 baseVectors.add(vector);
                 break;
             }
 
             Point start = basePoints.get(listIndex);
             Point end = basePoints.get(listIndex + 1);
-            Vector3D vector = Vector3DCreator.createVector(start,end);
+            Vector3D vector = Vector3DCreator.createVector(start, end);
             baseVectors.add(vector);
         }
 
@@ -88,7 +88,6 @@ public class RegularPyramidParameters {
 
         return edgeVectors;
     }
-
 
 
 }

@@ -1,9 +1,12 @@
 package by.epam.kickstart.action.calculators;
 
 import by.epam.kickstart.action.RegularPyramidParameters;
+import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.entities.Pyramid;
+import by.epam.kickstart.util.creators.PyramidCreator;
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PyramidCalculator {
@@ -59,6 +62,36 @@ public class PyramidCalculator {
         double apexHeight = Math.sqrt(Math.pow(edgeSideLength, 2) - Math.pow(radius, 2));
 
         return apexHeight;
+    }
+
+    public String calculateVolumeRatioCutPyramid(Pyramid pyramid, List<Point> coordinatePlane) {
+        int pointsCount = 4;
+        if (coordinatePlane == null || coordinatePlane.size() != pointsCount) {
+            throw new IllegalArgumentException("Empty coordinate plane.");
+        }
+        Point apex = getParameters(pyramid).getApex();
+        List<Point> pointsOfNewPyramid = new ArrayList<>(coordinatePlane);
+        pointsOfNewPyramid.add(apex);
+
+        Pyramid littlePyramid = PyramidCreator.createPyramid(pointsOfNewPyramid);
+        double littlePyramidVolume = calculateVolume(littlePyramid);
+        double currentPyramidVolume = calculateVolume(pyramid);
+        double cutPyramidVolume = currentPyramidVolume - littlePyramidVolume;
+
+        double ratio = 0;
+        if (littlePyramidVolume > cutPyramidVolume) {
+            ratio = littlePyramidVolume / cutPyramidVolume;
+        }
+        if (cutPyramidVolume > littlePyramidVolume) {
+            ratio = cutPyramidVolume / littlePyramidVolume;
+        }
+        if (cutPyramidVolume == littlePyramidVolume) {
+            ratio = 1;
+        }
+
+        String result = String.format("Ratio after cutting = 1 : %f", ratio);
+
+        return result;
     }
 
     private RegularPyramidParameters getParameters(Pyramid pyramid) {

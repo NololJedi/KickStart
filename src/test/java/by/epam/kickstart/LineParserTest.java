@@ -1,4 +1,4 @@
-package by.epam.kickstart.jnit;
+package by.epam.kickstart;
 
 import by.epam.kickstart.util.LineParser;
 import org.junit.Assert;

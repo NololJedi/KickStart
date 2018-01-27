@@ -1,4 +1,4 @@
-package by.epam.kickstart.jnit.testcreator;
+package by.epam.kickstart.testcreator;
 
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.util.creators.PointCreator;

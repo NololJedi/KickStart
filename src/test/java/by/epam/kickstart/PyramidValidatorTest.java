@@ -1,4 +1,4 @@
-package by.epam.kickstart.jnit;
+package by.epam.kickstart;
 
 import by.epam.kickstart.action.PyramidValidator;
 import by.epam.kickstart.entities.Point;

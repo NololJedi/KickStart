@@ -7,11 +7,14 @@ import by.epam.kickstart.exceptions.DataLoadException;
 import by.epam.kickstart.util.LineParser;
 import by.epam.kickstart.util.creators.PointCreator;
 import by.epam.kickstart.util.creators.PyramidCreator;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataProcessor {
+
+    private final static Logger LOGGER = Logger.getLogger(DataProcessor.class);
 
     public List<Pyramid> getPyramidsFromFile(String fileName) throws DataLoadException {
         if (fileName == null || fileName.isEmpty()) {
@@ -30,6 +33,7 @@ public class DataProcessor {
             throw new IllegalArgumentException("Empty line.");
         }
 
+        LOGGER.info("Try to create pyramid from line = " + line + ".");
         String[] parsedData = LineParser.parseLine(line,LineParser.DATA_PARSER_INDICATOR);
         List<Point> points = new ArrayList<>();
         DataValidator dataValidator = new DataValidator();
@@ -39,11 +43,15 @@ public class DataProcessor {
                 String[] parsedCoordinates = LineParser.parseLine(coordinates,LineParser.COORDINATES_PARSER_INDICATOR);
                 if (dataValidator.checkArguments(parsedCoordinates)){
                     Point point = PointCreator.createPoint(parsedCoordinates);
+                    LOGGER.info("Point was created successfully - " + point.toString() + ".");
                     points.add(point);
                 } else {
+                    LOGGER.info("Incorrect coordinates detected - " + coordinates + ".");
                     break;
                 }
             }
+        } else {
+            LOGGER.info("Similar coordinates detected.");
         }
 
         if (points.size() == 0) {
@@ -53,6 +61,7 @@ public class DataProcessor {
         Pyramid pyramid = PyramidCreator.createPyramid(points);
         PyramidValidator pyramidValidator = new PyramidValidator();
         if (pyramidValidator.isFigureRegularPyramid(pyramid)) {
+            LOGGER.info("Pyramid was created successfully.");
             return pyramid;
         }
 
@@ -71,6 +80,8 @@ public class DataProcessor {
 
             if (pyramid != null) {
                 pyramids.add(pyramid);
+            } else {
+                LOGGER.info("Pyramid can't be created from such coordinates - " + line + ".");
             }
         }
 

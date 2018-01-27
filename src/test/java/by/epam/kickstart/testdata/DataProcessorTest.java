@@ -1,4 +1,4 @@
-package by.epam.kickstart.jnit.testdata;
+package by.epam.kickstart.testdata;
 
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.entities.Pyramid;

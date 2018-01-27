@@ -8,7 +8,6 @@ import by.epam.kickstart.util.creators.Vector3DCreator;
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PyramidValidator {

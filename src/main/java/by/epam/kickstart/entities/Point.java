@@ -26,10 +26,10 @@ public class Point {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object){
+        if (this == object) {
             return true;
         }
-        if (object == null || getClass() != object.getClass()){
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
 
@@ -41,7 +41,7 @@ public class Point {
         if (yCoordinate != point.yCoordinate) {
             return false;
         }
-        if (zCoordinate != point.zCoordinate){
+        if (zCoordinate != point.zCoordinate) {
             return false;
         }
 
@@ -55,7 +55,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return String.format("Point : X = %.1f, Y = %.1f, Z = %.1f;",xCoordinate, yCoordinate, zCoordinate);
+        return String.format("Point : X = %.1f, Y = %.1f, Z = %.1f;", xCoordinate, yCoordinate, zCoordinate);
     }
 }
 

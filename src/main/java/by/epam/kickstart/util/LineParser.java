@@ -6,7 +6,7 @@ public class LineParser {
     public static final String COORDINATES_PARSER_INDICATOR = " ";
     public static final String DATA_PARSER_INDICATOR = "!";
 
-    public static String[] parseLine(String data, String parserIndicator){
+    public static String[] parseLine(String data, String parserIndicator) {
         if (data == null || data.isEmpty()) {
             throw new IllegalArgumentException("Data is empty.");
         }

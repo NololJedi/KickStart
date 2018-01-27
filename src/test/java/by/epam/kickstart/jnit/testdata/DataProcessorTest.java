@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DataProcessorTest {
 
-    private static List<String> validData;
+    private static List<String> testingData;
     private static String validCoordinates;
     private static List<Pyramid> validPyramids;
     private static DataProcessor dataProcessor;
@@ -50,15 +50,16 @@ public class DataProcessorTest {
     }
 
     @BeforeClass
-    public static void setValidData() {
+    public static void setTestingData() {
         String notValidSyntaxCoordinates = "2.2 2.2 2.2!3.3 3.3 3z.3";
         String notValidArgumentCoordinates = "0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.1";
+        String validAllCoordinates = "0.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.0 5.0 7.1";
 
-        validData = new ArrayList<>();
+        testingData = new ArrayList<>();
 
-        validData.add(validCoordinates);
-        validData.add(notValidArgumentCoordinates);
-        validData.add(notValidSyntaxCoordinates);
+        testingData.add(validAllCoordinates);
+        testingData.add(notValidArgumentCoordinates);
+        testingData.add(notValidSyntaxCoordinates);
 
     }
 
@@ -100,6 +101,8 @@ public class DataProcessorTest {
 
     @Test
     public void shouldGetPyramidsFromListBeSuccessful() {
-        Assert.assertArrayEquals(new List[]{validPyramids}, new List[]{dataProcessor.getPyramidsFromList(validData)});
+        List<Pyramid> pyramids = dataProcessor.getPyramidsFromList(testingData);
+
+        Assert.assertArrayEquals(new List[]{validPyramids}, new List[]{pyramids});
     }
 }

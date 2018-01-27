@@ -11,7 +11,7 @@ public class VectorCalculator {
         if (first == null || second == null) {
             throw new IllegalArgumentException("Vector is empty.");
         }
-        double angle = Math.toDegrees(Vector3D.angle(first,second));
+        double angle = Math.toDegrees(Vector3D.angle(first, second));
 
         return angle;
     }
@@ -27,10 +27,10 @@ public class VectorCalculator {
         int countOfAvailablePoints = 2;
 
         for (int listIndex = 0; listIndex < vectors.size() - lastPointIndex; listIndex++) {
-                Vector3D first = vectors.get(listIndex);
-                Vector3D second = vectors.get(listIndex + 1);
-                double angle = calculatePyramidBaseAngleBetweenTwoVectors(first, second);
-                anglesBetweenVectors.add(angle);
+            Vector3D first = vectors.get(listIndex);
+            Vector3D second = vectors.get(listIndex + 1);
+            double angle = calculatePyramidBaseAngleBetweenTwoVectors(first, second);
+            anglesBetweenVectors.add(angle);
 
             if (listIndex + countOfAvailablePoints == vectors.size()) {
                 first = vectors.get(listIndex + 1);

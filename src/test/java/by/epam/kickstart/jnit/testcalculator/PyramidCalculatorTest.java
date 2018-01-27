@@ -41,43 +41,43 @@ public class PyramidCalculatorTest {
 
     @Test
     public void shouldPyramidVolumeBeCalculatedSuccessful() {
-        double volume = 270.3;
+        double volume = 270.266;
 
-        Assert.assertEquals(volume, pyramidCalculator.calculateVolume(validPyramid),1.0);
+        Assert.assertEquals(volume, pyramidCalculator.calculateVolume(validPyramid),0.001);
     }
 
     @Test
     public void shouldPyramidBaseAreaBeCalculatedSuccessful() {
         double baseArea = 100.0;
 
-        Assert.assertEquals(baseArea, pyramidCalculator.calculateBaseArea(validPyramid),1.0);
+        Assert.assertEquals(baseArea, pyramidCalculator.calculateBaseArea(validPyramid),0.001);
     }
 
     @Test
     public void shouldPyramidSideSurfaceAreaBeCalculatedSuccessful() {
-        double sideSurfaceArea = 173.2;
+        double sideSurfaceArea = 173.677;
 
-        Assert.assertEquals(sideSurfaceArea, pyramidCalculator.calculateSideSurfaceArea(validPyramid),1.0);
+        Assert.assertEquals(sideSurfaceArea, pyramidCalculator.calculateSideSurfaceArea(validPyramid),0.001);
     }
 
     @Test
     public void shouldPyramidApexHeightBeCalculatedSuccessful() {
-        double apexHeight = 8.1;
+        double apexHeight = 8.108;
 
-        Assert.assertEquals(apexHeight, pyramidCalculator.calculateApexHeight(validPyramid), 1.0);
+        Assert.assertEquals(apexHeight, pyramidCalculator.calculateApexHeight(validPyramid), 0.001);
     }
 
     @Test
     public void shouldPyramidEdgeAreaBeCalculatedSuccessful() {
-        double edgeArea = 43.3;
+        double edgeArea = 43.419;
 
-        Assert.assertEquals(edgeArea, pyramidCalculator.calculateEdgeArea(validPyramid),1.0);
+        Assert.assertEquals(edgeArea, pyramidCalculator.calculateEdgeArea(validPyramid),0.001);
     }
 
     @Test
     public void shouldPyramidAreaBeCalculatedSuccessful() {
-        double area = 273.2;
+        double area = 273.677;
 
-        Assert.assertEquals(area, pyramidCalculator.calculateArea(validPyramid),1.0);
+        Assert.assertEquals(area, pyramidCalculator.calculateArea(validPyramid),0.001);
     }
 }

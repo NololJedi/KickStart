@@ -5,7 +5,7 @@ import by.epam.kickstart.util.LineParser;
 
 public class PointCreator {
 
-    public static Point createPoint (String[] parsedCoordinates) {
+    public static Point createPoint(String[] parsedCoordinates) {
         if (parsedCoordinates == null || parsedCoordinates.length == 0) {
             throw new IllegalArgumentException("Coordinates not found.");
         }
@@ -14,7 +14,7 @@ public class PointCreator {
         double yCoordinate = Double.parseDouble(parsedCoordinates[1]);
         double zCoordinate = Double.parseDouble(parsedCoordinates[2]);
 
-        Point point = new Point(xCoordinate,yCoordinate,zCoordinate);
+        Point point = new Point(xCoordinate, yCoordinate, zCoordinate);
 
         return point;
     }

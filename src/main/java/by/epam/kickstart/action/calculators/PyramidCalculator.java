@@ -46,7 +46,7 @@ public class PyramidCalculator {
         double perimeter = 2 * getParameters(pyramid).getEdgeSideLength() + getParameters(pyramid).getBaseSideLength();
         double halfPerimeter = perimeter / 2;
         double edgeArea = Math.sqrt(halfPerimeter * Math.pow((halfPerimeter - getParameters(pyramid).getEdgeSideLength()), 2)
-                * (halfPerimeter -getParameters(pyramid).getBaseSideLength()));
+                * (halfPerimeter - getParameters(pyramid).getBaseSideLength()));
 
         return edgeArea;
     }
@@ -56,7 +56,7 @@ public class PyramidCalculator {
         int countOfAngles = baseVectors.size();
         double edgeSideLength = getParameters(pyramid).getEdgeSideLength();
         double radius = edgeSideLength / (2 * Math.sin(180 / countOfAngles));
-        double apexHeight = Math.sqrt(Math.pow(edgeSideLength,2) - Math.pow(radius,2));
+        double apexHeight = Math.sqrt(Math.pow(edgeSideLength, 2) - Math.pow(radius, 2));
 
         return apexHeight;
     }

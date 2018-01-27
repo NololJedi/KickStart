@@ -110,7 +110,10 @@ public class PyramidValidator {
             Vector3D firstVector = vectors.get(listIndex);
             Vector3D secondVector = vectors.get(listIndex + 1);
 
-            if (firstVector.getNorm() != secondVector.getNorm()) {
+            double firstVectorLength = firstVector.getNorm();
+            double secondVectorLength = secondVector.getNorm();
+
+            if (firstVectorLength != secondVectorLength) {
                 isValid = false;
                 break;
             }

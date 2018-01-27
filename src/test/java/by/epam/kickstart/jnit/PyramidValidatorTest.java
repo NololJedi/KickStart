@@ -9,13 +9,43 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
+import org.junit.runner.RunWith;
 
+@RunWith(DataProviderRunner.class)
 public class PyramidValidatorTest {
 
     private static PyramidValidator pyramidValidator;
     private static Pyramid validPyramid;
     private static Pyramid notValidPyramidApex;
     private static Pyramid notValidPyramidBase;
+    private static Pyramid notValidPyramidPoints;
+
+    @DataProvider
+    public static Object[][] dataProviderAdd() {
+        return new Object[][] {
+                {notValidPyramidPoints, false},
+                {notValidPyramidBase, false},
+                {notValidPyramidApex, false}
+        };
+    }
+
+    @BeforeClass
+    public static void setNotValidPyramidPoints() {
+        Point pointA = new Point(0.0,0.0,0.0);
+        Point pointB = new Point(10.0,0.0,0.0);
+        Point pointC = new Point(10.0,10.0,2.0);
+
+        List<Point> notValidPoints = new ArrayList<>();
+
+        notValidPoints.add(pointA);
+        notValidPoints.add(pointB);
+        notValidPoints.add(pointC);
+
+        notValidPyramidPoints = new Pyramid(notValidPoints);
+    }
 
     @BeforeClass
     public static void setNotValidPyramidBase() {
@@ -85,8 +115,11 @@ public class PyramidValidatorTest {
     }
 
     @Test
-    public void shouldFigureBeNotRegularPyramid() {
-        Assert.assertFalse(pyramidValidator.isFigureRegularPyramid(notValidPyramidApex));
+    @UseDataProvider("dataProviderAdd")
+    public void shouldFigureBeNotRegularPyramid(Pyramid pyramid, boolean expected) {
+        boolean currentChecking = pyramidValidator.isFigureRegularPyramid(pyramid);
+
+        Assert.assertEquals(expected, currentChecking);
     }
 
     @Test

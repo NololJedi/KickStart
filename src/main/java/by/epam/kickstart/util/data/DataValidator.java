@@ -8,12 +8,12 @@ public class DataValidator {
     private static final String PATTERN_OF_COORDINATE_VALIDATION = "^-?\\d+\\.[0-9]$";
     private static final int COUNT_OF_COORDINATES_ARGUMENTS = 3;
 
-    private boolean checkArgumentsSyntax(String[] parsedCoordinates){
+    private boolean checkArgumentsSyntax(String[] parsedCoordinates) {
 
         boolean isValid = true;
         Pattern pattern = Pattern.compile(PATTERN_OF_COORDINATE_VALIDATION);
 
-        for (int arrayIndex = 0; arrayIndex < parsedCoordinates.length ;arrayIndex++) {
+        for (int arrayIndex = 0; arrayIndex < parsedCoordinates.length; arrayIndex++) {
             Matcher matcher = pattern.matcher(parsedCoordinates[arrayIndex]);
             if (!matcher.matches()) {
                 isValid = false;
@@ -24,7 +24,7 @@ public class DataValidator {
         return isValid;
     }
 
-    private boolean checkArgumentsCount(String[] parsedCoordinates){
+    private boolean checkArgumentsCount(String[] parsedCoordinates) {
         boolean isValid = true;
         int currentCountOfArguments = parsedCoordinates.length;
 
@@ -36,7 +36,7 @@ public class DataValidator {
     }
 
     public boolean checkArguments(String[] parsedCoordinates) {
-        if(parsedCoordinates == null || parsedCoordinates.length == 0) {
+        if (parsedCoordinates == null || parsedCoordinates.length == 0) {
             throw new IllegalArgumentException("Coordinates is empty.");
         }
 
@@ -66,7 +66,7 @@ public class DataValidator {
 
         for (int arrayIndex = 0; arrayIndex < parsedData.length - 1; arrayIndex++) {
             String currentCoordinates = parsedData[arrayIndex];
-            for (int innerArrayIndex = arrayIndex+1; innerArrayIndex < parsedData.length; innerArrayIndex++) {
+            for (int innerArrayIndex = arrayIndex + 1; innerArrayIndex < parsedData.length; innerArrayIndex++) {
                 String checkingCoordinates = parsedData[innerArrayIndex];
                 if (currentCoordinates.equals(checkingCoordinates)) {
                     isValid = false;

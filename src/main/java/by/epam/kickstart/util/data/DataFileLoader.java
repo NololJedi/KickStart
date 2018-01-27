@@ -20,15 +20,15 @@ public class DataFileLoader {
 
         List<String> data = new ArrayList<>();
 
-        try(BufferedReader fileReader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(fileName))) {
             while (fileReader.ready()) {
                 String dataFromFile = fileReader.readLine();
-                dataFromFile = dataFromFile.replaceAll("\r\n","");
+                dataFromFile = dataFromFile.replaceAll("\r\n", "");
                 dataFromFile = dataFromFile.trim();
                 data.add(dataFromFile);
             }
         } catch (IOException exception) {
-           throw new DataLoadException(exception);
+            throw new DataLoadException(exception);
         }
         return data;
     }

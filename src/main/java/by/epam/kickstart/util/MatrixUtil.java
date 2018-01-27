@@ -8,7 +8,7 @@ public class MatrixUtil {
 
     private static final int COLUMN_SIZE = 3;
 
-    public static double matrixDeterminant (double[][] matrix) {
+    public static double matrixDeterminant(double[][] matrix) {
         if (matrix == null || matrix.length == 0) {
             throw new IllegalArgumentException("Matrix is empty.");
         }
@@ -38,13 +38,13 @@ public class MatrixUtil {
                 }
             }
 
-            result += matrix[0][i] * Math.pow (-1, (double) i) * matrixDeterminant (temporary);
+            result += matrix[0][i] * Math.pow(-1, (double) i) * matrixDeterminant(temporary);
         }
         return (result);
     }
 
-    public static double[][] fillMatrix (List<Vector3D> vectors) {
-        if (vectors == null || vectors.isEmpty()){
+    public static double[][] fillMatrix(List<Vector3D> vectors) {
+        if (vectors == null || vectors.isEmpty()) {
             throw new IllegalArgumentException("Matrix arguments is not valid.");
         }
         int lineSize = vectors.size();

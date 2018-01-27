@@ -29,7 +29,7 @@ public class Pyramid {
             Point current = points.get(listIndex);
             Point objectPoint = pointsOfObject.get(listIndex);
 
-            if (!current.equals(objectPoint)){
+            if (!current.equals(objectPoint)) {
                 return false;
             }
         }

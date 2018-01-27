@@ -40,9 +40,16 @@ public class DataProcessor {
                 if (dataValidator.checkArguments(parsedCoordinates)){
                     Point point = PointCreator.createPoint(parsedCoordinates);
                     points.add(point);
+                } else {
+                    break;
                 }
             }
         }
+
+        if (points.size() == 0) {
+            return null;
+        }
+
         Pyramid pyramid = PyramidCreator.createPyramid(points);
         PyramidValidator pyramidValidator = new PyramidValidator();
         if (pyramidValidator.isFigureRegularPyramid(pyramid)) {

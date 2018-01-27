@@ -46,8 +46,9 @@ public class PyramidCalculator {
     }
 
     public double calculateEdgeArea(Pyramid pyramid) {
-        double perimeter = 2 * getParameters(pyramid).getEdgeSideLength() + getParameters(pyramid).getBaseSideLength();
-        double halfPerimeter = perimeter / 2;
+        double trianglePerimeter = 2 * getParameters(pyramid).getEdgeSideLength()
+                + getParameters(pyramid).getBaseSideLength();
+        double halfPerimeter = trianglePerimeter / 2;
         double edgeArea = Math.sqrt(halfPerimeter * Math.pow((halfPerimeter - getParameters(pyramid).getEdgeSideLength()), 2)
                 * (halfPerimeter - getParameters(pyramid).getBaseSideLength()));
 
@@ -55,25 +56,24 @@ public class PyramidCalculator {
     }
 
     public double calculateApexHeight(Pyramid pyramid) {
-        List<Vector3D> baseVectors = getParameters(pyramid).getBaseVectors();
-        int countOfAngles = baseVectors.size();
+        double baseSideLength = getParameters(pyramid).getBaseSideLength();
+        double triangleDiagonal = baseSideLength * Math.sqrt(2);
         double edgeSideLength = getParameters(pyramid).getEdgeSideLength();
-        double radius = edgeSideLength / (2 * Math.sin(180 / countOfAngles));
-        double apexHeight = Math.sqrt(Math.pow(edgeSideLength, 2) - Math.pow(radius, 2));
+        double apexHeight = Math.sqrt(Math.pow(edgeSideLength, 2) - Math.pow(triangleDiagonal / 2, 2));
 
         return apexHeight;
     }
 
-    public String calculateVolumeRatioCutPyramid(Pyramid pyramid, List<Point> coordinatePlane) {
+    public double calculateVolumeRatioCutPyramid(Pyramid pyramid, List<Point> coordinatePlane) {
         int pointsCount = 4;
         if (coordinatePlane == null || coordinatePlane.size() != pointsCount) {
             throw new IllegalArgumentException("Empty coordinate plane.");
         }
         Point apex = getParameters(pyramid).getApex();
-        List<Point> pointsOfNewPyramid = new ArrayList<>(coordinatePlane);
-        pointsOfNewPyramid.add(apex);
+        List<Point> pointsOfLittlePyramid = new ArrayList<>(coordinatePlane);
+        pointsOfLittlePyramid.add(apex);
 
-        Pyramid littlePyramid = PyramidCreator.createPyramid(pointsOfNewPyramid);
+        Pyramid littlePyramid = PyramidCreator.createPyramid(pointsOfLittlePyramid);
         double littlePyramidVolume = calculateVolume(littlePyramid);
         double currentPyramidVolume = calculateVolume(pyramid);
         double cutPyramidVolume = currentPyramidVolume - littlePyramidVolume;
@@ -89,9 +89,7 @@ public class PyramidCalculator {
             ratio = 1;
         }
 
-        String result = String.format("Ratio after cutting = 1 : %f", ratio);
-
-        return result;
+        return ratio;
     }
 
     private RegularPyramidParameters getParameters(Pyramid pyramid) {

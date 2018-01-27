@@ -1,4 +1,4 @@
-package by.epam.kickstart;
+package by.epam.kickstart.pyramid;
 
 import by.epam.kickstart.action.RegularPyramidParameters;
 import by.epam.kickstart.entities.Point;

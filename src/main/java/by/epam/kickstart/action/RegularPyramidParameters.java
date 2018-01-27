@@ -67,7 +67,6 @@ public class RegularPyramidParameters {
                 baseVectors.add(vector);
                 break;
             }
-
             Point start = basePoints.get(listIndex);
             Point end = basePoints.get(listIndex + 1);
             Vector3D vector = Vector3DCreator.createVector(start, end);

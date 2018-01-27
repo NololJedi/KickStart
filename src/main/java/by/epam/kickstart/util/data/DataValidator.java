@@ -9,7 +9,6 @@ public class DataValidator {
     private static final int COUNT_OF_COORDINATES_ARGUMENTS = 3;
 
     private boolean checkArgumentsSyntax(String[] parsedCoordinates) {
-
         boolean isValid = true;
         Pattern pattern = Pattern.compile(PATTERN_OF_COORDINATE_VALIDATION);
 
@@ -25,14 +24,9 @@ public class DataValidator {
     }
 
     private boolean checkArgumentsCount(String[] parsedCoordinates) {
-        boolean isValid = true;
         int currentCountOfArguments = parsedCoordinates.length;
 
-        if (currentCountOfArguments != COUNT_OF_COORDINATES_ARGUMENTS) {
-            isValid = false;
-        }
-
-        return isValid;
+        return currentCountOfArguments == COUNT_OF_COORDINATES_ARGUMENTS;
     }
 
     public boolean checkArguments(String[] parsedCoordinates) {
@@ -40,7 +34,6 @@ public class DataValidator {
             throw new IllegalArgumentException("Coordinates is empty.");
         }
 
-        boolean resultOfChecking = false;
         boolean isSyntaxValid = false;
         boolean isArgumentsCountValid = false;
 
@@ -50,11 +43,8 @@ public class DataValidator {
         if (checkArgumentsCount(parsedCoordinates)) {
             isArgumentsCountValid = true;
         }
-        if (isArgumentsCountValid && isSyntaxValid) {
-            resultOfChecking = true;
-        }
 
-        return resultOfChecking;
+        return isArgumentsCountValid && isSyntaxValid;
     }
 
     public boolean checkCoordinatesForUniqueness(String[] parsedData) {

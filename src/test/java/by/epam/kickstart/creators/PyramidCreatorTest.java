@@ -1,4 +1,4 @@
-package by.epam.kickstart.testcreator;
+package by.epam.kickstart.creators;
 
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.entities.Pyramid;
@@ -17,11 +17,11 @@ public class PyramidCreatorTest {
 
     @BeforeClass
     public static void setUpTestingObjects() {
-        Point pointA = new Point(0.0,0.0,0.0);
-        Point pointB = new Point(10.0,0.0,0.0);
-        Point pointC = new Point(10.0,10.0,0.0);
-        Point pointD = new Point(0.0,10.0,0.0);
-        Point pointH = new Point(5.0,5.0,7.1);
+        Point pointA = new Point(0.0, 0.0, 0.0);
+        Point pointB = new Point(10.0, 0.0, 0.0);
+        Point pointC = new Point(10.0, 10.0, 0.0);
+        Point pointD = new Point(0.0, 10.0, 0.0);
+        Point pointH = new Point(5.0, 5.0, 7.1);
 
         validPoints = new ArrayList<>();
 
@@ -38,21 +38,21 @@ public class PyramidCreatorTest {
     public void shouldNullPointsCauseException() {
         List<Point> notValidPoints = null;
 
-        Pyramid pyramid = PyramidCreator.createPyramid(notValidPoints);
+        PyramidCreator.createPyramid(notValidPoints);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldEmptyPointsCauseException() {
         List<Point> notValidPoints = new ArrayList<>();
 
-        Pyramid pyramid = PyramidCreator.createPyramid(notValidPoints);
+        PyramidCreator.createPyramid(notValidPoints);
     }
 
     @Test
     public void shouldPyramidBeCreatedSuccessful() {
         Pyramid testingPyramid = PyramidCreator.createPyramid(validPoints);
 
-        Assert.assertEquals(validPyramid,testingPyramid);
+        Assert.assertEquals(validPyramid, testingPyramid);
     }
 
 }

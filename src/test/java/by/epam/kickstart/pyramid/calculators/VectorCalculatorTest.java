@@ -1,4 +1,4 @@
-package by.epam.kickstart.testcalculator;
+package by.epam.kickstart.pyramid.calculators;
 
 import by.epam.kickstart.action.calculators.VectorCalculator;
 import by.epam.kickstart.entities.Point;
@@ -25,33 +25,31 @@ public class VectorCalculatorTest {
 
     @BeforeClass
     public static void setUpTestingVectors() {
-
         Point pointA = new Point(0.0, 0.0, 0.0);
-        Point pointB = new Point(10.0,0.0,0.0);
+        Point pointB = new Point(10.0, 0.0, 0.0);
         Point pointC = new Point(10.0, 10.0, 0.0);
-        Point pointD = new Point(0.0,10.0,0.0);
+        Point pointD = new Point(0.0, 10.0, 0.0);
 
-        Vector3D vectorAB = Vector3DCreator.createVector(pointA,pointB);
-        Vector3D vectorBC = Vector3DCreator.createVector(pointB,pointC);
-        Vector3D vectorCD = Vector3DCreator.createVector(pointC,pointD);
-        Vector3D vectorDA = Vector3DCreator.createVector(pointD,pointA);
+        Vector3D vectorAB = Vector3DCreator.createVector(pointA, pointB);
+        Vector3D vectorBC = Vector3DCreator.createVector(pointB, pointC);
+        Vector3D vectorCD = Vector3DCreator.createVector(pointC, pointD);
+        Vector3D vectorDA = Vector3DCreator.createVector(pointD, pointA);
+
         validVectorFirst = vectorAB;
         validVectorSecond = vectorBC;
-
         validVectors = new ArrayList<>();
 
         validVectors.add(vectorAB);
         validVectors.add(vectorBC);
         validVectors.add(vectorCD);
         validVectors.add(vectorDA);
-
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldNullVectorCauseException() {
         Vector3D first = null;
 
-        vectorCalculator.calculatePyramidBaseAngleBetweenTwoVectors(first,validVectorSecond);
+        vectorCalculator.calculatePyramidBaseAngleBetweenTwoVectors(first, validVectorSecond);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -70,9 +68,18 @@ public class VectorCalculatorTest {
 
     @Test
     public void shouldAngleCalculatingBetweenTwoVectorsBeSuccessful() {
-        double angle = 90.0;
+        double expectedAngle = 90.0;
+        double testingAngle = vectorCalculator.calculatePyramidBaseAngleBetweenTwoVectors(validVectorFirst, validVectorSecond);
 
-        Assert.assertEquals(angle,vectorCalculator.calculatePyramidBaseAngleBetweenTwoVectors(validVectorFirst,validVectorSecond), 1.0);
+        Assert.assertEquals(expectedAngle, testingAngle, 1.0);
+    }
+
+    @Test
+    public void shouldAngleCalculatingBetweenTwoVectorsBeNotSuccessful() {
+        double incorrectAngle = 91.0;
+        double testingAngle = vectorCalculator.calculatePyramidBaseAngleBetweenTwoVectors(validVectorFirst, validVectorSecond);
+
+        Assert.assertEquals(incorrectAngle, testingAngle, 1.0);
     }
 
     @Test
@@ -84,6 +91,22 @@ public class VectorCalculatorTest {
         validAngles.add(90.0);
         validAngles.add(90.0);
 
-        Assert.assertEquals(validAngles,vectorCalculator.calculateAnglesBetweenVectorsInList(validVectors));
+        List<Double> testingAngles = vectorCalculator.calculateAnglesBetweenVectorsInList(validVectors);
+
+        Assert.assertEquals(validAngles, testingAngles);
+    }
+
+    @Test
+    public void shouldAngleCalculatingBetweenVectorsInListBeNotSuccessful() {
+        List<Double> incorrectAngles = new ArrayList<>();
+
+        incorrectAngles.add(92.0);
+        incorrectAngles.add(95.0);
+        incorrectAngles.add(92.0);
+        incorrectAngles.add(93.0);
+
+        List<Double> testingAngles = vectorCalculator.calculateAnglesBetweenVectorsInList(validVectors);
+
+        Assert.assertNotEquals(incorrectAngles, testingAngles);
     }
 }

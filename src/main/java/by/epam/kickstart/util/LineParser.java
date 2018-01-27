@@ -16,8 +16,8 @@ public class LineParser {
 
         String[] arguments = data.split(parserIndicator);
 
-        if (arguments.length == 0) {
-            throw new IllegalArgumentException("Data is empty.");
+        if (arguments.length == 1) {
+            throw new IllegalArgumentException("Data wasn't parsed.");
         }
 
         return arguments;

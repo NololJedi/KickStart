@@ -23,6 +23,7 @@ public class DataProcessor {
 
         DataFileLoader dataFileLoader = new DataFileLoader();
         List<String> data = dataFileLoader.loadDataFromFile(fileName);
+        LOGGER.info("Data was loaded successfully.");
         List<Pyramid> pyramids = getPyramidsFromList(data);
 
         return pyramids;
@@ -34,14 +35,15 @@ public class DataProcessor {
         }
 
         LOGGER.info("Try to create pyramid from line = " + line + ".");
-        String[] parsedData = LineParser.parseLine(line,LineParser.DATA_PARSER_INDICATOR);
+        String[] parsedData = LineParser.parseLine(line, LineParser.DATA_PARSER_INDICATOR);
         List<Point> points = new ArrayList<>();
         DataValidator dataValidator = new DataValidator();
+        Pyramid pyramid = null;
 
         if (dataValidator.checkCoordinatesForUniqueness(parsedData)) {
             for (String coordinates : parsedData) {
-                String[] parsedCoordinates = LineParser.parseLine(coordinates,LineParser.COORDINATES_PARSER_INDICATOR);
-                if (dataValidator.checkArguments(parsedCoordinates)){
+                String[] parsedCoordinates = LineParser.parseLine(coordinates, LineParser.COORDINATES_PARSER_INDICATOR);
+                if (dataValidator.checkArguments(parsedCoordinates)) {
                     Point point = PointCreator.createPoint(parsedCoordinates);
                     LOGGER.info("Point was created successfully - " + point.toString() + ".");
                     points.add(point);
@@ -55,17 +57,18 @@ public class DataProcessor {
         }
 
         if (points.size() == 0) {
-            return null;
-        }
-
-        Pyramid pyramid = PyramidCreator.createPyramid(points);
-        PyramidValidator pyramidValidator = new PyramidValidator();
-        if (pyramidValidator.isFigureRegularPyramid(pyramid)) {
-            LOGGER.info("Pyramid was created successfully.");
+            LOGGER.info("No points were created. Check data.");
             return pyramid;
         }
 
-        return null;
+        Pyramid createdPyramid = PyramidCreator.createPyramid(points);
+        PyramidValidator pyramidValidator = new PyramidValidator();
+        if (pyramidValidator.isFigureRegularPyramid(createdPyramid)) {
+            LOGGER.info("Pyramid was created successfully.");
+            pyramid = createdPyramid;
+        }
+
+        return pyramid;
     }
 
     public List<Pyramid> getPyramidsFromList(List<String> data) {

@@ -33,8 +33,10 @@ public class VectorCalculator {
             anglesBetweenVectors.add(angle);
 
             if (listIndex + countOfAvailablePoints == vectors.size()) {
-                first = vectors.get(listIndex + 1);
-                second = vectors.get(0);
+                int lastPoint = listIndex + 1;
+                int firstPoint = 0;
+                first = vectors.get(lastPoint);
+                second = vectors.get(firstPoint);
                 angle = calculatePyramidBaseAngleBetweenTwoVectors(first, second);
                 anglesBetweenVectors.add(angle);
             }

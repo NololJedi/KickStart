@@ -2,7 +2,6 @@ package by.epam.kickstart;
 
 import by.epam.kickstart.util.LineParser;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -28,7 +27,7 @@ public class LineParserTest {
     public void shouldNullParserIndcatorCauseException() {
         String notValidParserIndicator = null;
 
-        LineParser.parseLine(validData,notValidParserIndicator);
+        LineParser.parseLine(validData, notValidParserIndicator);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -42,14 +41,14 @@ public class LineParserTest {
     public void shouldEmptyParserIndicatorCauseException() {
         String notValidParserIndicator = "";
 
-        LineParser.parseLine(validData,notValidParserIndicator);
+        LineParser.parseLine(validData, notValidParserIndicator);
     }
 
     @Test
     public void shouldLineBeParsedSuccessful() {
         String[] currentData = LineParser.parseLine(validData, LineParser.COORDINATES_PARSER_INDICATOR);
 
-        Assert.assertArrayEquals(parsedValidData,currentData );
+        Assert.assertArrayEquals(parsedValidData, currentData);
     }
 
 

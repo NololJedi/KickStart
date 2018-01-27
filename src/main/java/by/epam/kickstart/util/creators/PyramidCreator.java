@@ -1,6 +1,5 @@
 package by.epam.kickstart.util.creators;
 
-import by.epam.kickstart.action.PyramidValidator;
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.entities.Pyramid;
 

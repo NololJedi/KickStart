@@ -10,10 +10,7 @@ import java.util.List;
 
 public class DataFileLoader {
 
-    public static final String FILE_NAME = "./src/main/resources/data.txt";
-
     public List<String> loadDataFromFile(String fileName) throws DataLoadException {
-
         if (fileName == null || fileName.isEmpty()) {
             throw new IllegalArgumentException("Check file name.");
         }

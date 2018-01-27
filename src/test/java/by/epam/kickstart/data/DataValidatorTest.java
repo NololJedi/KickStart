@@ -1,4 +1,4 @@
-package by.epam.kickstart.testdata;
+package by.epam.kickstart.data;
 
 import by.epam.kickstart.util.data.DataValidator;
 import org.junit.Assert;

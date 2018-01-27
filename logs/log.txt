@@ -1,23 +1,27 @@
-
-2018-01-27 20:25:22 INFO  PyramidProcessor:18 - Start program.
-2018-01-27 20:25:22 INFO  PyramidProcessor:19 - Try to get pyramids from file.
-2018-01-27 20:25:22 INFO  DataProcessor:36 - Try to create pyramid from line = 0.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.0 5.0 7.1.
-2018-01-27 20:25:22 INFO  DataProcessor:46 - Point was created successfully - Point : X = 0,0, Y = 0,0, Z = 0,0;.
-2018-01-27 20:25:22 INFO  DataProcessor:46 - Point was created successfully - Point : X = 10,0, Y = 0,0, Z = 0,0;.
-2018-01-27 20:25:22 INFO  DataProcessor:46 - Point was created successfully - Point : X = 10,0, Y = 10,0, Z = 0,0;.
-2018-01-27 20:25:22 INFO  DataProcessor:46 - Point was created successfully - Point : X = 0,0, Y = 10,0, Z = 0,0;.
-2018-01-27 20:25:22 INFO  DataProcessor:46 - Point was created successfully - Point : X = 5,0, Y = 5,0, Z = 7,1;.
-2018-01-27 20:25:22 INFO  DataProcessor:64 - Pyramid was created successfully.
-2018-01-27 20:25:22 INFO  DataProcessor:36 - Try to create pyramid from line = 0z.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
-2018-01-27 20:25:22 INFO  DataProcessor:49 - Incorrect coordinates detected - 0z.0 0.0 0.0.
-2018-01-27 20:25:22 INFO  DataProcessor:84 - Pyramid can't be created from such coordinates - 0z.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
-2018-01-27 20:25:22 INFO  DataProcessor:36 - Try to create pyramid from line = 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
-2018-01-27 20:25:22 INFO  DataProcessor:49 - Incorrect coordinates detected - 0.0 0.0.
-2018-01-27 20:25:22 INFO  DataProcessor:84 - Pyramid can't be created from such coordinates - 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
-2018-01-27 20:25:22 INFO  DataProcessor:36 - Try to create pyramid from line = 0.0 0.0 0.0!0.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
-2018-01-27 20:25:22 INFO  DataProcessor:54 - Similar coordinates detected.
-2018-01-27 20:25:22 INFO  DataProcessor:84 - Pyramid can't be created from such coordinates - 0.0 0.0 0.0!0.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
-2018-01-27 20:25:22 INFO  PyramidProcessor:30 - Getting information about pyramids : 
-2018-01-27 20:25:22 INFO  PyramidProcessor:33 - Pyramid = points : Point : X = 0,0, Y = 0,0, Z = 0,0; Point : X = 10,0, Y = 0,0, Z = 0,0; Point : X = 10,0, Y = 10,0, Z = 0,0; Point : X = 0,0, Y = 10,0, Z = 0,0; Point : X = 5,0, Y = 5,0, Z = 7,1; 
-2018-01-27 20:25:22 INFO  PyramidProcessor:37 - Pyramid area = 273.6778627229158
-2018-01-27 20:25:22 INFO  PyramidProcessor:38 - Pyramid volume = 273.6778627229158
+2018-01-27 23:05:33 INFO  PyramidProcessor:18 - Start program.
+2018-01-27 23:05:33 INFO  PyramidProcessor:19 - Try to get pyramids from file.
+2018-01-27 23:05:33 INFO  DataProcessor:26 - Data was loaded successfully.
+2018-01-27 23:05:33 INFO  DataProcessor:37 - Try to create pyramid from line = 0.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.0 5.0 7.1.
+2018-01-27 23:05:33 INFO  DataProcessor:48 - Point was created successfully - Point : X = 0,0, Y = 0,0, Z = 0,0;.
+2018-01-27 23:05:33 INFO  DataProcessor:48 - Point was created successfully - Point : X = 10,0, Y = 0,0, Z = 0,0;.
+2018-01-27 23:05:33 INFO  DataProcessor:48 - Point was created successfully - Point : X = 10,0, Y = 10,0, Z = 0,0;.
+2018-01-27 23:05:33 INFO  DataProcessor:48 - Point was created successfully - Point : X = 0,0, Y = 10,0, Z = 0,0;.
+2018-01-27 23:05:33 INFO  DataProcessor:48 - Point was created successfully - Point : X = 5,0, Y = 5,0, Z = 7,1;.
+2018-01-27 23:05:33 INFO  DataProcessor:67 - Pyramid was created successfully.
+2018-01-27 23:05:33 INFO  DataProcessor:37 - Try to create pyramid from line = 0z.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
+2018-01-27 23:05:33 INFO  DataProcessor:51 - Incorrect coordinates detected - 0z.0 0.0 0.0.
+2018-01-27 23:05:33 INFO  DataProcessor:60 - No points were created. Check data.
+2018-01-27 23:05:33 INFO  DataProcessor:87 - Pyramid can't be created from such coordinates - 0z.0 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
+2018-01-27 23:05:33 INFO  DataProcessor:37 - Try to create pyramid from line = 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
+2018-01-27 23:05:33 INFO  DataProcessor:51 - Incorrect coordinates detected - 0.0 0.0.
+2018-01-27 23:05:33 INFO  DataProcessor:60 - No points were created. Check data.
+2018-01-27 23:05:33 INFO  DataProcessor:87 - Pyramid can't be created from such coordinates - 0.0 0.0!10.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
+2018-01-27 23:05:33 INFO  DataProcessor:37 - Try to create pyramid from line = 0.0 0.0 0.0!0.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
+2018-01-27 23:05:33 INFO  DataProcessor:56 - Similar coordinates detected.
+2018-01-27 23:05:33 INFO  DataProcessor:60 - No points were created. Check data.
+2018-01-27 23:05:33 INFO  DataProcessor:87 - Pyramid can't be created from such coordinates - 0.0 0.0 0.0!0.0 0.0 0.0!10.0 10.0 0.0!0.0 10.0 0.0!5.5 5.5 7.0.
+2018-01-27 23:05:33 INFO  PyramidProcessor:30 - Pyramids were loaded from file successfully.
+2018-01-27 23:05:33 INFO  PyramidProcessor:31 - Getting information about pyramids : 
+2018-01-27 23:05:33 INFO  PyramidProcessor:34 - Pyramid = points : Point : X = 0,0, Y = 0,0, Z = 0,0; Point : X = 10,0, Y = 0,0, Z = 0,0; Point : X = 10,0, Y = 10,0, Z = 0,0; Point : X = 0,0, Y = 10,0, Z = 0,0; Point : X = 5,0, Y = 5,0, Z = 7,1; 
+2018-01-27 23:05:33 INFO  PyramidProcessor:38 - Pyramid area = 273.6778627229158
+2018-01-27 23:05:33 INFO  PyramidProcessor:39 - Pyramid volume = 236.66666666666654

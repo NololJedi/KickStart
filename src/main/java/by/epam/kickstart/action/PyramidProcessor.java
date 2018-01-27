@@ -8,13 +8,13 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
-import static by.epam.kickstart.util.data.DataFileLoader.FILE_NAME;
-
 public class PyramidProcessor {
+
+    public static final String FILE_NAME = "./src/main/resources/data.txt";
 
     private static final Logger LOGGER = Logger.getLogger(PyramidProcessor.class);
 
-    public static void execute() {
+    public void execute() {
         LOGGER.info("Start program.");
         LOGGER.info("Try to get pyramids from file.");
         DataProcessor dataProcessor = new DataProcessor();
@@ -23,10 +23,11 @@ public class PyramidProcessor {
         try {
             pyramids = dataProcessor.getPyramidsFromFile(FILE_NAME);
         } catch (DataLoadException e) {
-           LOGGER.warn("Can't load pyramids, check file.",e);
+            LOGGER.warn("Can't load pyramids, check file.", e);
         }
 
         if (pyramids != null || pyramids.size() != 0) {
+            LOGGER.info("Pyramids were loaded from file successfully.");
             LOGGER.info("Getting information about pyramids : ");
 
             for (Pyramid pyramid : pyramids) {

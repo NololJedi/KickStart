@@ -1,4 +1,4 @@
-package by.epam.kickstart.testdata;
+package by.epam.kickstart.data;
 
 import by.epam.kickstart.entities.Point;
 import by.epam.kickstart.entities.Pyramid;
@@ -31,11 +31,11 @@ public class DataProcessorTest {
     public static void setValidPyramids() {
         validPyramids = new ArrayList<>();
 
-        Point pointA = new Point(0.0,0.0,0.0);
-        Point pointB = new Point(10.0,0.0,0.0);
-        Point pointC = new Point(10.0,10.0,0.0);
-        Point pointD = new Point(0.0,10.0,0.0);
-        Point pointH = new Point(5.0,5.0,7.1);
+        Point pointA = new Point(0.0, 0.0, 0.0);
+        Point pointB = new Point(10.0, 0.0, 0.0);
+        Point pointC = new Point(10.0, 10.0, 0.0);
+        Point pointD = new Point(0.0, 10.0, 0.0);
+        Point pointH = new Point(5.0, 5.0, 7.1);
 
         List<Point> validPoints = new ArrayList<>();
 
@@ -60,35 +60,34 @@ public class DataProcessorTest {
         testingData.add(validAllCoordinates);
         testingData.add(notValidArgumentCoordinates);
         testingData.add(notValidSyntaxCoordinates);
-
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldEmptyLineCauseException() {
         String line = "";
 
-        Pyramid pyramid = dataProcessor.getPyramidFromLine(line);
+        dataProcessor.getPyramidFromLine(line);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldNullLineCauseException() {
         String line = null;
 
-        Pyramid pyramid = dataProcessor.getPyramidFromLine(line);
+        dataProcessor.getPyramidFromLine(line);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldEmptyDataCauseException() {
         List<String> data = new ArrayList<>();
 
-       List<Pyramid> pyramids = dataProcessor.getPyramidsFromList(data);
+        dataProcessor.getPyramidsFromList(data);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldNullDataCauseException() {
         List<String> data = null;
 
-        List<Pyramid> pyramids = dataProcessor.getPyramidsFromList(data);
+        dataProcessor.getPyramidsFromList(data);
     }
 
     @Test
@@ -96,7 +95,7 @@ public class DataProcessorTest {
         Pyramid validPyramid = validPyramids.get(0);
         Pyramid testingPyramid = dataProcessor.getPyramidFromLine(validCoordinates);
 
-        Assert.assertEquals(validPyramid,testingPyramid);
+        Assert.assertEquals(validPyramid, testingPyramid);
     }
 
     @Test

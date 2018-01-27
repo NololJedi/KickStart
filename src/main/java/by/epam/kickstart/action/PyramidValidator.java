@@ -12,11 +12,11 @@ import java.util.List;
 
 public class PyramidValidator {
 
-    private static final int MINIMAL_COUNT_OF_POINTS = 4;
+    private static final int REGULAR_PYRAMID_COUNT_OF_POINTS = 5;
 
     private boolean checkPointsCount(Pyramid pyramid) {
         List<Point> points = getParameters(pyramid).getPoints();
-        return points.size() >= MINIMAL_COUNT_OF_POINTS;
+        return points.size() == REGULAR_PYRAMID_COUNT_OF_POINTS;
     }
 
     public boolean isFigureRegularPyramid(Pyramid pyramid) {
@@ -52,12 +52,10 @@ public class PyramidValidator {
 
     private boolean isApexLayOutBaseSpace(Pyramid pyramid) {
         boolean isValid = true;
-        List<Point> points = new ArrayList<>();
-        points.addAll(getParameters(pyramid).getPoints());
         int firstBasePointIndex = 0;
         int lastPointArgument = 1;
+        List<Point> points = new ArrayList<>(pyramid.getPoints());
         points.remove(firstBasePointIndex);
-
         List<Vector3D> vectors = new ArrayList<>();
 
         for (int listIndex = 0; listIndex < points.size(); listIndex++) {

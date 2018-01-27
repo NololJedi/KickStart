@@ -1,7 +1,6 @@
 package by.epam.kickstart.util.creators;
 
 import by.epam.kickstart.entities.Point;
-import by.epam.kickstart.util.LineParser;
 
 public class PointCreator {
 

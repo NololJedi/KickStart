@@ -27,16 +27,25 @@ public class MatrixUtilTest {
     }
 
     @BeforeClass
+    public static void setValidMatrix() {
+        validMatrix = new double[3][4];
+
+        validMatrix[0] = new double[]{-2.0, -3.0, -1.0, 6.0};
+        validMatrix[1] = new double[]{6.0, -3.0, -6.0, 3.0};
+        validMatrix[2] = new double[]{-2.0, 1.0, 2.0, -1.0};
+    }
+
+    @BeforeClass
     public static void setVectors() {
         Point pointA = new Point(1.0, -2.0, 2.0);
-        Point pointB = new Point(-1.0,4.0,0.0);
+        Point pointB = new Point(-1.0, 4.0, 0.0);
         Point pointC = new Point(-4.0, 1.0, 1.0);
-        Point pointD = new Point(-5.0,-5.0,3.0);
+        Point pointD = new Point(-5.0, -5.0, 3.0);
 
-        Vector3D vectorAB = Vector3DCreator.createVector(pointA,pointB);
-        Vector3D vectorBC = Vector3DCreator.createVector(pointB,pointC);
-        Vector3D vectorCD = Vector3DCreator.createVector(pointC,pointD);
-        Vector3D vectorDA = Vector3DCreator.createVector(pointD,pointA);
+        Vector3D vectorAB = Vector3DCreator.createVector(pointA, pointB);
+        Vector3D vectorBC = Vector3DCreator.createVector(pointB, pointC);
+        Vector3D vectorCD = Vector3DCreator.createVector(pointC, pointD);
+        Vector3D vectorDA = Vector3DCreator.createVector(pointD, pointA);
 
         vectors = new ArrayList<>();
 
@@ -44,15 +53,6 @@ public class MatrixUtilTest {
         vectors.add(vectorBC);
         vectors.add(vectorCD);
         vectors.add(vectorDA);
-    }
-
-    @BeforeClass
-    public static void setValidMatrix() {
-        validMatrix = new double[3][4];
-
-        validMatrix[0] = new double[]{-2.0, -3.0, -1.0, 6.0};
-        validMatrix[1] = new double[]{6.0, -3.0, -6.0, 3.0};
-        validMatrix[2] = new double[]{-2.0, 1.0, 2.0, -1.0};
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -73,21 +73,23 @@ public class MatrixUtilTest {
     public void shouldMatrixFillBeSuccessful() {
         double[][] testingMatrix = MatrixUtil.fillMatrix(vectors);
 
-        Assert.assertArrayEquals(validMatrix,testingMatrix);
+        Assert.assertArrayEquals(validMatrix, testingMatrix);
     }
 
     @Test
     public void shouldMatrixDeterminantBeZero() {
-        double determinant = 0.0;
+        double expectedDeterminant = 0.0;
+        double testingDeterminant = MatrixUtil.matrixDeterminant(validMatrix);
 
-        Assert.assertEquals(determinant, MatrixUtil.matrixDeterminant(validMatrix),1.0);
+        Assert.assertEquals(expectedDeterminant, testingDeterminant, 0.001);
     }
 
     @Test
     public void shouldMatrixDeterminantBeNotZero() {
-        double determinant = 0.0;
+        double incorrectDeterminant = 0.0;
+        double testingDeterminant = MatrixUtil.matrixDeterminant(notValidMatrix);
 
-        Assert.assertNotEquals(determinant, MatrixUtil.matrixDeterminant(notValidMatrix),1.0);
+        Assert.assertNotEquals(incorrectDeterminant, testingDeterminant, 1.0);
     }
 
     @Test(expected = IllegalArgumentException.class)
